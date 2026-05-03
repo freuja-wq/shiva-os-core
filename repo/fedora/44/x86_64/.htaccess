@@ -1,0 +1,4 @@
+Options -Indexes
+RewriteEngine On
+RewriteBase /repo/fedora/44/x86_64/
+RewriteRule ^repodata/repomd\.xml$ repomd.php [L]

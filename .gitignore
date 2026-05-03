@@ -1,0 +1,54 @@
+# ============================================================
+# SHIVA OS 44 — Fedora Gaming Ecosystem
+# ============================================================
+
+# Credentials — JAMAIS dans git
+CLAUDE.md
+shiva-config.php
+key.txt
+*.asc.private
+ShivaOS-GPG-PRIVATE-KEY.asc
+
+# Clés GPG privées
+SHIVA_GENESIS/keys/private-keys-v1.d/
+SHIVA_GENESIS/keys/shiva-private-key.asc
+SHIVA_GENESIS/keys/trustdb.gpg
+SHIVA_GENESIS/keys/pubring.kbx
+
+# ISOs et images disque
+*.iso
+*.img
+*.zst.part
+
+# Build locaux
+BUILD_shiva44/
+ISO_WORK/
+shiva_build_tmp/
+squashfs-root/
+BUILD_LOCAL/
+
+# Base de données et cache
+stats.db
+games_cache.json
+*.db
+.ftp-deploy-sync-state.json
+
+# Site web — exclu du repo git
+*.html
+*.css
+*.js
+*.json
+*.php
+assets/
+branding/
+.htaccess
+
+# Divers
+*.log
+*.tmp
+.DS_Store
+uploads/
+
+# Python cache
+__pycache__/
+*.pyc

@@ -1,0 +1,440 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+
+    <!-- Fond principal ultra sombre -->
+    <radialGradient id="bg" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#0a0005"/>
+      <stop offset="45%" stop-color="#050003"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+
+    <!-- Halo central orange brûlé -->
+    <radialGradient id="halo-core" cx="50%" cy="48%" r="30%">
+      <stop offset="0%" stop-color="#ff6a00" stop-opacity="0.22"/>
+      <stop offset="50%" stop-color="#cc3a00" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#ff2200" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Halo violet profond gauche -->
+    <radialGradient id="halo-left" cx="10%" cy="55%" r="45%">
+      <stop offset="0%" stop-color="#5500cc" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#5500cc" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Halo violet droite -->
+    <radialGradient id="halo-right" cx="90%" cy="35%" r="40%">
+      <stop offset="0%" stop-color="#3300aa" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#3300aa" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Glow orange fort -->
+    <filter id="glow-fire" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12" result="b1"/>
+      <feGaussianBlur stdDeviation="4" result="b2"/>
+      <feMerge><feMergeNode in="b1"/><feMergeNode in="b2"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Glow doux pour lignes -->
+    <filter id="glow-soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Glow intense trident -->
+    <filter id="glow-trident" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18" result="b1"/>
+      <feGaussianBlur stdDeviation="6" result="b2"/>
+      <feGaussianBlur stdDeviation="2" result="b3"/>
+      <feMerge><feMergeNode in="b1"/><feMergeNode in="b1"/><feMergeNode in="b2"/><feMergeNode in="b3"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Glow texte -->
+    <filter id="glow-text" x="-25%" y="-80%" width="150%" height="260%">
+      <feGaussianBlur stdDeviation="14" result="b1"/>
+      <feGaussianBlur stdDeviation="4" result="b2"/>
+      <feMerge><feMergeNode in="b1"/><feMergeNode in="b2"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Glow éclair -->
+    <filter id="glow-lightning" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Grille hexagonale -->
+    <pattern id="hex-grid" x="0" y="0" width="60" height="104" patternUnits="userSpaceOnUse">
+      <polygon points="30,2 58,17 58,47 30,62 2,47 2,17"
+        fill="none" stroke="rgba(255,100,0,0.04)" stroke-width="1"/>
+      <polygon points="30,54 58,69 58,99 30,114 2,99 2,69"
+        fill="none" stroke="rgba(255,100,0,0.04)" stroke-width="1"/>
+    </pattern>
+
+    <!-- Grille fine -->
+    <pattern id="grid-fine" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,80,0,0.025)" stroke-width="0.5"/>
+    </pattern>
+
+    <!-- Dégradé trident -->
+    <linearGradient id="trident-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffaa00"/>
+      <stop offset="40%" stop-color="#ff6600"/>
+      <stop offset="100%" stop-color="#cc2200"/>
+    </linearGradient>
+
+    <!-- Dégradé chrome vertical -->
+    <linearGradient id="chrome-line" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,140,0,0)"/>
+      <stop offset="50%" stop-color="rgba(255,140,0,0.6)"/>
+      <stop offset="100%" stop-color="rgba(255,140,0,0)"/>
+    </linearGradient>
+
+    <!-- Masque fondu bords -->
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+      <stop offset="60%" stop-color="rgba(0,0,0,0)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.85)"/>
+    </radialGradient>
+
+  </defs>
+
+  <!-- === FOND === -->
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#halo-core)"/>
+  <rect width="1920" height="1080" fill="url(#halo-left)"/>
+  <rect width="1920" height="1080" fill="url(#halo-right)"/>
+
+  <!-- Grilles -->
+  <rect width="1920" height="1080" fill="url(#grid-fine)" opacity="0.7"/>
+  <rect width="1920" height="1080" fill="url(#hex-grid)" opacity="0.6"/>
+
+  <!-- === LIGNES CIRCUIT HORIZONTALES === -->
+  <g filter="url(#glow-soft)">
+    <!-- Gauche -->
+    <line x1="0" y1="310" x2="740" y2="310" stroke="rgba(255,100,0,0.18)" stroke-width="1"/>
+    <line x1="0" y1="312" x2="580" y2="312" stroke="rgba(255,60,0,0.08)" stroke-width="0.5"/>
+    <line x1="0" y1="770" x2="660" y2="770" stroke="rgba(255,100,0,0.12)" stroke-width="1"/>
+    <line x1="0" y1="450" x2="380" y2="450" stroke="rgba(200,50,200,0.1)" stroke-width="1"/>
+    <!-- Droite -->
+    <line x1="1180" y1="310" x2="1920" y2="310" stroke="rgba(255,100,0,0.18)" stroke-width="1"/>
+    <line x1="1340" y1="312" x2="1920" y2="312" stroke="rgba(255,60,0,0.08)" stroke-width="0.5"/>
+    <line x1="1260" y1="770" x2="1920" y2="770" stroke="rgba(255,100,0,0.12)" stroke-width="1"/>
+    <line x1="1540" y1="450" x2="1920" y2="450" stroke="rgba(200,50,200,0.1)" stroke-width="1"/>
+    <!-- Verticales -->
+    <line x1="420" y1="0" x2="420" y2="290" stroke="rgba(255,100,0,0.1)" stroke-width="1"/>
+    <line x1="200" y1="0" x2="200" y2="200" stroke="rgba(255,100,0,0.07)" stroke-width="1"/>
+    <line x1="1500" y1="0" x2="1500" y2="290" stroke="rgba(255,100,0,0.1)" stroke-width="1"/>
+    <line x1="1720" y1="0" x2="1720" y2="200" stroke="rgba(255,100,0,0.07)" stroke-width="1"/>
+    <line x1="420" y1="790" x2="420" y2="1080" stroke="rgba(255,100,0,0.08)" stroke-width="1"/>
+    <line x1="1500" y1="790" x2="1500" y2="1080" stroke="rgba(255,100,0,0.08)" stroke-width="1"/>
+  </g>
+
+  <!-- Noeuds circuit -->
+  <g filter="url(#glow-soft)" fill="rgba(255,120,0,0.7)">
+    <circle cx="740" cy="310" r="3"/>
+    <circle cx="660" cy="770" r="3"/>
+    <circle cx="1180" cy="310" r="3"/>
+    <circle cx="1260" cy="770" r="3"/>
+    <rect x="418" y="288" width="4" height="4"/>
+    <rect x="1498" y="288" width="4" height="4"/>
+  </g>
+
+  <!-- === ÉCLAIRS (lightning bolts) === -->
+  <!-- Éclair gauche -->
+  <g filter="url(#glow-lightning)">
+    <polyline points="220,80 195,160 215,160 185,250 210,250 170,370"
+      fill="none" stroke="rgba(255,150,0,0.5)" stroke-width="2" stroke-linejoin="round"/>
+    <polyline points="220,80 195,160 215,160 185,250 210,250 170,370"
+      fill="none" stroke="rgba(255,220,150,0.25)" stroke-width="6" stroke-linejoin="round"/>
+  </g>
+  <!-- Éclair droite -->
+  <g filter="url(#glow-lightning)">
+    <polyline points="1700,100 1725,180 1705,180 1735,275 1710,275 1750,390"
+      fill="none" stroke="rgba(255,150,0,0.5)" stroke-width="2" stroke-linejoin="round"/>
+    <polyline points="1700,100 1725,180 1705,180 1735,275 1710,275 1750,390"
+      fill="none" stroke="rgba(255,220,150,0.25)" stroke-width="6" stroke-linejoin="round"/>
+  </g>
+  <!-- Micro éclairs bas -->
+  <g filter="url(#glow-lightning)" opacity="0.6">
+    <polyline points="580,900 565,950 575,950 555,1010"
+      fill="none" stroke="rgba(180,80,255,0.6)" stroke-width="1.5" stroke-linejoin="round"/>
+    <polyline points="1340,880 1355,930 1345,930 1365,990"
+      fill="none" stroke="rgba(180,80,255,0.6)" stroke-width="1.5" stroke-linejoin="round"/>
+  </g>
+
+  <!-- === ANNEAU PRINCIPAL === -->
+  <g filter="url(#glow-fire)">
+    <!-- Cercle extérieur -->
+    <circle cx="960" cy="460" r="310" fill="none"
+      stroke="rgba(255,100,0,0.2)" stroke-width="1.5"/>
+    <!-- Cercle moyen pointillé -->
+    <circle cx="960" cy="460" r="270" fill="none"
+      stroke="rgba(255,60,0,0.12)" stroke-width="1"
+      stroke-dasharray="6,10"/>
+    <!-- Cercle intérieur violet -->
+    <circle cx="960" cy="460" r="340" fill="none"
+      stroke="rgba(120,0,220,0.1)" stroke-width="1"
+      stroke-dasharray="3,18"/>
+  </g>
+
+  <!-- Arcs lumineux -->
+  <g filter="url(#glow-fire)" fill="none" stroke-width="2.5">
+    <path d="M 700,305 A 310,310 0 0,1 1220,305"
+      stroke="rgba(255,120,0,0.45)" stroke-linecap="round"/>
+    <path d="M 705,625 A 310,310 0 0,0 1215,625"
+      stroke="rgba(255,60,0,0.2)" stroke-linecap="round"/>
+    <path d="M 657,400 A 310,310 0 0,0 657,520"
+      stroke="rgba(160,0,255,0.3)" stroke-linecap="round"/>
+    <path d="M 1263,400 A 310,310 0 0,1 1263,520"
+      stroke="rgba(160,0,255,0.3)" stroke-linecap="round"/>
+  </g>
+
+  <!-- Tirets sur l'anneau (marques) -->
+  <g stroke="rgba(255,120,0,0.7)" stroke-width="2.5" filter="url(#glow-soft)">
+    <line x1="960" y1="147" x2="960" y2="167"/>
+    <line x1="960" y1="753" x2="960" y2="773"/>
+    <line x1="647" y1="460" x2="667" y2="460"/>
+    <line x1="1253" y1="460" x2="1273" y2="460"/>
+    <line x1="741" y1="241" x2="755" y2="255"/>
+    <line x1="1165" y1="665" x2="1179" y2="679"/>
+    <line x1="741" y1="679" x2="755" y2="665"/>
+    <line x1="1165" y1="255" x2="1179" y2="241"/>
+    <!-- 8 tirets supplémentaires intermédiaires -->
+    <line x1="858" y1="155" x2="865" y2="172"/>
+    <line x1="1062" y1="155" x2="1055" y2="172"/>
+    <line x1="858" y1="763" x2="865" y2="748"/>
+    <line x1="1062" y1="763" x2="1055" y2="748"/>
+  </g>
+
+  <!-- === HEXAGONE CENTRAL === -->
+  <g filter="url(#glow-fire)">
+    <polygon points="960,355 1075,420 1075,550 960,615 845,550 845,420"
+      fill="rgba(255,80,0,0.04)"
+      stroke="rgba(255,110,0,0.5)" stroke-width="1.5"/>
+    <polygon points="960,388 1045,436 1045,534 960,582 875,534 875,436"
+      fill="rgba(255,40,0,0.03)"
+      stroke="rgba(255,60,0,0.2)" stroke-width="1"
+      stroke-dasharray="5,7"/>
+  </g>
+
+  <!-- Coins hexagone (détails tech) -->
+  <g stroke="rgba(255,140,0,0.6)" stroke-width="1.5" fill="none" filter="url(#glow-soft)">
+    <path d="M 960,355 L 960,338"/>
+    <path d="M 1075,420 L 1090,411"/>
+    <path d="M 1075,550 L 1090,559"/>
+    <path d="M 960,615 L 960,632"/>
+    <path d="M 845,550 L 830,559"/>
+    <path d="M 845,420 L 830,411"/>
+  </g>
+
+  <!-- === TRIDENT SHIVA — DESIGN GAMING PREMIUM === -->
+  <g filter="url(#glow-trident)">
+
+    <!-- Manche central (corps principal) -->
+    <rect x="948" y="455" width="24" height="130" rx="4"
+      fill="url(#trident-grad)"/>
+
+    <!-- Dent centrale (grande pointe) -->
+    <!-- Triangle de pointe -->
+    <polygon points="960,275 944,355 976,355"
+      fill="url(#trident-grad)"/>
+    <!-- Tige centrale -->
+    <rect x="948" y="348" width="24" height="115" rx="2"
+      fill="url(#trident-grad)"/>
+
+    <!-- Dent gauche -->
+    <polygon points="895,305 880,375 910,375"
+      fill="rgba(255,100,0,0.85)"/>
+    <rect x="880" y="368" width="22" height="75" rx="2"
+      fill="rgba(255,100,0,0.85)"/>
+
+    <!-- Dent droite -->
+    <polygon points="1025,305 1010,375 1040,375"
+      fill="rgba(255,100,0,0.85)"/>
+    <rect x="1010" y="368" width="22" height="75" rx="2"
+      fill="rgba(255,100,0,0.85)"/>
+
+    <!-- Barre horizontale principale -->
+    <rect x="876" y="443" width="208" height="16" rx="8"
+      fill="url(#trident-grad)"/>
+
+    <!-- Détails chrome sur la barre -->
+    <rect x="876" y="443" width="208" height="4" rx="2"
+      fill="rgba(255,220,100,0.3)"/>
+
+    <!-- Pied du trident (pointe basse) -->
+    <polygon points="948,585 960,618 972,585"
+      fill="rgba(255,100,0,0.9)"/>
+
+    <!-- Lignes de détail sur le manche -->
+    <rect x="952" y="480" width="16" height="2" rx="1" fill="rgba(255,220,100,0.4)"/>
+    <rect x="952" y="500" width="16" height="2" rx="1" fill="rgba(255,220,100,0.4)"/>
+    <rect x="952" y="520" width="16" height="2" rx="1" fill="rgba(255,220,100,0.4)"/>
+    <rect x="952" y="540" width="16" height="2" rx="1" fill="rgba(255,220,100,0.3)"/>
+
+  </g>
+
+  <!-- Lignes chromées verticales flanquant le trident -->
+  <line x1="820" y1="300" x2="820" y2="640" stroke="url(#chrome-line)" stroke-width="1"/>
+  <line x1="1100" y1="300" x2="1100" y2="640" stroke="url(#chrome-line)" stroke-width="1"/>
+
+  <!-- === SCAN LINES (ambiance CRT gaming) === -->
+  <g opacity="0.035">
+    <rect width="1920" height="1080" fill="none"
+      stroke="rgba(0,0,0,1)" stroke-width="2"
+      style="stroke-dasharray:1,3; stroke-dashoffset:0"/>
+    <line x1="0" y1="0" x2="1920" y2="0" stroke="rgba(255,80,0,0.15)" stroke-width="1080"
+      stroke-dasharray="2,4"/>
+  </g>
+
+  <!-- === PARTICULES GAMING === -->
+  <!-- Particules oranges (données / energie) -->
+  <g fill="rgba(255,130,0,0.8)" filter="url(#glow-soft)">
+    <circle cx="130" cy="150" r="2.5"/>
+    <circle cx="290" cy="260" r="1.5"/>
+    <circle cx="80" cy="380" r="3"/>
+    <circle cx="340" cy="480" r="1.5"/>
+    <circle cx="160" cy="620" r="2"/>
+    <circle cx="440" cy="120" r="1.5"/>
+    <circle cx="520" cy="880" r="2.5"/>
+    <circle cx="100" cy="820" r="1.5"/>
+    <circle cx="460" cy="240" r="1"/>
+    <circle cx="240" cy="530" r="2"/>
+    <circle cx="370" cy="750" r="1.5"/>
+    <circle cx="60" cy="960" r="2"/>
+    <!-- Droite -->
+    <circle cx="1790" cy="160" r="2.5"/>
+    <circle cx="1630" cy="290" r="1.5"/>
+    <circle cx="1840" cy="400" r="3"/>
+    <circle cx="1580" cy="510" r="1.5"/>
+    <circle cx="1760" cy="640" r="2"/>
+    <circle cx="1480" cy="130" r="1.5"/>
+    <circle cx="1400" cy="870" r="2.5"/>
+    <circle cx="1860" cy="790" r="1.5"/>
+    <circle cx="1460" cy="250" r="1"/>
+    <circle cx="1680" cy="540" r="2"/>
+    <circle cx="1550" cy="760" r="1.5"/>
+    <!-- Bas -->
+    <circle cx="580" cy="970" r="1.5"/>
+    <circle cx="780" cy="1030" r="2"/>
+    <circle cx="1140" cy="980" r="1.5"/>
+    <circle cx="1350" cy="1025" r="2"/>
+    <circle cx="680" cy="1050" r="1"/>
+    <circle cx="1240" cy="1045" r="1"/>
+    <!-- Haut -->
+    <circle cx="450" cy="60" r="1.5"/>
+    <circle cx="680" cy="35" r="2"/>
+    <circle cx="1240" cy="45" r="1.5"/>
+    <circle cx="1500" cy="70" r="2"/>
+    <circle cx="840" cy="25" r="1"/>
+    <circle cx="1080" cy="30" r="1"/>
+  </g>
+
+  <!-- Particules violettes (magie / énergie sombre) -->
+  <g fill="rgba(160,60,255,0.7)" filter="url(#glow-soft)">
+    <circle cx="180" cy="290" r="2"/>
+    <circle cx="380" cy="420" r="1.5"/>
+    <circle cx="110" cy="560" r="2"/>
+    <circle cx="270" cy="700" r="1.5"/>
+    <circle cx="50" cy="450" r="1"/>
+    <circle cx="1710" cy="250" r="2"/>
+    <circle cx="1860" cy="550" r="1.5"/>
+    <circle cx="1640" cy="720" r="2"/>
+    <circle cx="1950" cy="350" r="1"/>
+    <circle cx="720" cy="65" r="1.5"/>
+    <circle cx="1200" cy="50" r="2"/>
+    <circle cx="600" cy="1010" r="1.5"/>
+    <circle cx="1320" cy="1000" r="2"/>
+  </g>
+
+  <!-- Particules blanches (étincelles) -->
+  <g fill="rgba(255,255,255,0.6)" filter="url(#glow-soft)">
+    <circle cx="320" cy="190" r="1"/>
+    <circle cx="500" cy="350" r="1.5"/>
+    <circle cx="140" cy="710" r="1"/>
+    <circle cx="1600" cy="180" r="1"/>
+    <circle cx="1780" cy="440" r="1.5"/>
+    <circle cx="1860" cy="680" r="1"/>
+    <circle cx="900" cy="42" r="1"/>
+    <circle cx="1020" cy="38" r="1.5"/>
+  </g>
+
+  <!-- === TEXTE PRINCIPAL === -->
+  <!-- Ombre portée du texte -->
+  <text x="960" y="698"
+    font-family="'Ubuntu', 'Rajdhani', 'Orbitron', 'Noto Sans', sans-serif"
+    font-size="64" font-weight="900"
+    fill="rgba(200,60,0,0.4)"
+    text-anchor="middle"
+    letter-spacing="22">SHIVA OS</text>
+
+  <!-- Texte principal avec glow -->
+  <g filter="url(#glow-text)">
+    <text x="960" y="692"
+      font-family="'Ubuntu', 'Rajdhani', 'Orbitron', 'Noto Sans', sans-serif"
+      font-size="64" font-weight="900"
+      fill="rgba(255,255,255,0.96)"
+      text-anchor="middle"
+      letter-spacing="22">SHIVA OS</text>
+  </g>
+  <text x="960" y="692"
+    font-family="'Ubuntu', 'Rajdhani', 'Orbitron', 'Noto Sans', sans-serif"
+    font-size="64" font-weight="900"
+    fill="rgba(255,255,255,0.96)"
+    text-anchor="middle"
+    letter-spacing="22">SHIVA OS</text>
+
+  <!-- Ligne de séparation orange sous le titre -->
+  <g filter="url(#glow-soft)">
+    <line x1="680" y1="710" x2="870" y2="710" stroke="rgba(255,100,0,0.6)" stroke-width="1.5"/>
+    <line x1="1050" y1="710" x2="1240" y2="710" stroke="rgba(255,100,0,0.6)" stroke-width="1.5"/>
+    <circle cx="870" cy="710" r="3" fill="rgba(255,120,0,0.9)"/>
+    <circle cx="1050" cy="710" r="3" fill="rgba(255,120,0,0.9)"/>
+    <circle cx="960" cy="710" r="2" fill="rgba(255,180,0,0.7)"/>
+  </g>
+
+  <!-- Sous-titre -->
+  <text x="960" y="742"
+    font-family="'Ubuntu', 'Noto Sans', sans-serif"
+    font-size="13" font-weight="500"
+    fill="rgba(255,120,0,0.85)"
+    text-anchor="middle"
+    letter-spacing="10">PURE GAMING ECOSYSTEM</text>
+
+  <!-- Version tag -->
+  <text x="960" y="768"
+    font-family="monospace"
+    font-size="10" font-weight="400"
+    fill="rgba(255,80,0,0.5)"
+    text-anchor="middle"
+    letter-spacing="5">V2 GENESIS · KERNEL 7.0 EEVDF</text>
+
+  <!-- === COIN BAS GAUCHE — INFOS TECH === -->
+  <g opacity="0.45" filter="url(#glow-soft)">
+    <text x="36" y="1048"
+      font-family="monospace" font-size="9"
+      fill="rgba(255,100,0,0.7)"
+      letter-spacing="2">KDE PLASMA 6 · MESA KISAK VULKAN · SHIVA AI 10 MODULES</text>
+  </g>
+
+  <!-- Coin bas droite -->
+  <g opacity="0.35">
+    <text x="1884" y="1048"
+      font-family="monospace" font-size="9"
+      fill="rgba(200,80,255,0.6)"
+      text-anchor="end"
+      letter-spacing="2">GAMING · AI · FORGE</text>
+  </g>
+
+  <!-- === LIGNE BAS DÉCORATIVE === -->
+  <g filter="url(#glow-soft)">
+    <line x1="0" y1="1072" x2="1920" y2="1072"
+      stroke="rgba(255,80,0,0.2)" stroke-width="1"/>
+    <line x1="0" y1="1073" x2="600" y2="1073"
+      stroke="rgba(255,80,0,0.15)" stroke-width="0.5"/>
+    <line x1="1320" y1="1073" x2="1920" y2="1073"
+      stroke="rgba(255,80,0,0.15)" stroke-width="0.5"/>
+  </g>
+
+  <!-- Vignette bords (assombrit les coins pour focus central) -->
+  <rect width="1920" height="1080" fill="url(#vignette)"/>
+
+</svg>

@@ -1,0 +1,11 @@
+[Unit]
+Description=Shiva OS Heartbeat Pulse
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /usr/share/shiva-store/shiva-pulse.py
+
+[Install]
+WantedBy=multi-user.target

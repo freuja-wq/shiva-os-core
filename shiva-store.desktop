@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Shiva Store
+Comment=Shiva OS — App Store gaming natif
+Exec=python3 /usr/share/shiva-ai/shiva-store-app.py
+Icon=/usr/share/wallpapers/ShivaOS/shivaos-wallpaper.png
+Terminal=false
+Categories=Game;System;
+Keywords=gaming;store;apps;shiva;
+StartupNotify=true

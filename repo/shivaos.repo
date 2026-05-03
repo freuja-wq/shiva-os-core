@@ -1,0 +1,7 @@
+[shivaos]
+name=ShivaOS 44 — Pure Gaming Ecosystem
+baseurl=https://shivaos.com/repo/fedora/44/x86_64/
+enabled=1
+gpgcheck=1
+gpgkey=https://shivaos.com/repo/fedora/RPM-GPG-KEY-ShivaOS
+repo_gpgcheck=1

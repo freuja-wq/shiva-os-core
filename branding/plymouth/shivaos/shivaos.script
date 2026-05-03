@@ -1,0 +1,61 @@
+# ShivaOS Plymouth Boot Theme
+screen_width  = Window.GetWidth();
+screen_height = Window.GetHeight();
+
+# Fond noir
+bg = Rectangle();
+bg.SetSize(screen_width, screen_height);
+bg.SetColor(0.04, 0.04, 0.04, 1.0);
+bg.SetPosition(0, 0);
+
+# Logo centré
+logo = Image("shivaos-logo-256.png");
+logo_sprite = Sprite(logo);
+logo_sprite.SetX(screen_width  / 2 - logo.GetWidth()  / 2);
+logo_sprite.SetY(screen_height / 2 - logo.GetHeight() / 2 - 60);
+logo_sprite.SetOpacity(0);
+
+# Texte "SHIVA OS"
+msg = Image.Text("SHIVA OS", 0.996, 0.549, 0.0, 1, "Sans Bold 24");
+msg_sprite = Sprite(msg);
+msg_sprite.SetX(screen_width  / 2 - msg.GetWidth()  / 2);
+msg_sprite.SetY(screen_height / 2 + logo.GetHeight() / 2 - 40);
+
+# Barre de progression
+progress_bg = Rectangle();
+progress_bg.SetSize(400, 4);
+progress_bg.SetColor(0.15, 0.07, 0.0, 1.0);
+progress_bg.SetPosition(screen_width / 2 - 200, screen_height * 0.75);
+
+progress_bar = Rectangle();
+progress_bar.SetSize(0, 4);
+progress_bar.SetColor(0.996, 0.549, 0.0, 1.0);
+progress_bar.SetPosition(screen_width / 2 - 200, screen_height * 0.75);
+
+# Texte bas
+sub = Image.Text("Pure Gaming Ecosystem", 0.996, 0.549, 0.0, 0.5, "Sans 11");
+sub_sprite = Sprite(sub);
+sub_sprite.SetX(screen_width / 2 - sub.GetWidth() / 2);
+sub_sprite.SetY(screen_height * 0.75 + 20);
+
+# Animation
+progress = 0;
+fade      = 0;
+
+fun refresh_callback() {
+    if (fade < 1.0) {
+        fade += 0.05;
+        logo_sprite.SetOpacity(fade);
+    }
+    if (progress < 400) {
+        progress += 3;
+        progress_bar.SetSize(progress, 4);
+    }
+}
+Plymouth.SetRefreshFunction(refresh_callback);
+
+fun boot_progress_callback(duration, progress_val) {
+    progress = Math.Int(400 * progress_val);
+    progress_bar.SetSize(progress, 4);
+}
+Plymouth.SetBootProgressFunction(boot_progress_callback);

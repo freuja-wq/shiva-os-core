@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=ShivaOS
+Description=Shiva OS — Pure Gaming Ecosystem Boot Screen
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/shivaos
+ScriptFile=/usr/share/plymouth/themes/shivaos/shivaos.script
